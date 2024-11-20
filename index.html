@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="icon"
+      href="https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-6/275854716_1009516859998712_3360791562563963516_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=174925&_nc_ohc=Nd-x8LBVkfEAX-8j_3d&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfCE12FbrIzhS4MFFIpLnp91XXbAS27AcV3yTsAqHtNIHw&oe=640ADB19"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Kính Gửi Thầy Cô 20-11</title>
+  </head>
+  <body>
+    <audio id="background-audio" loop>
+        <source src="nhac1.mp3" type="audio/mpeg" />
+        Trình duyệt của bạn không hỗ trợ phát nhạc.
+      </audio>
+    <div class="wrapper">
+      <div class="loader">
+        <div class="cardHover">
+          <div class="inner one" style="--i: 1"></div>
+          <div class="inner two" style="--i: 1"></div>
+          <div class="inner three" style="--i: 1"></div>
+          <div class="box-heart">
+            <div class="heart"></div>
+          </div>
+        </div>
+      </div>
+      <button id="play-button" style="margin-top: 10px;"><p>Bấm vào đây</p></button>
+      <div class="content">
+        <i class="fa-solid fa-xmark"></i>
+        <h1>Kính Gửi thầy cô!</h1>
+        <p>
+            Nhân ngày Nhà giáo Việt Nam 20/11, em xin gửi đến thầy cô những lời chúc tốt đẹp nhất! 💐 Chúc thầy cô luôn mạnh khỏe, tràn đầy năng lượng để tiếp tục sứ mệnh cao cả, mang tri thức đến bao thế hệ học trò. 📚✨ Cảm ơn thầy cô vì đã không ngừng dìu dắt và chắp cánh cho ước mơ của chúng em bay cao, bay xa! 🕊️❤️
+            Mãi kính yêu và biết ơn thầy cô! 🙇‍♂️🙏</br>
+            Cre: Nguyễn Hồng Dương - 9A
+        </p>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="vanilla-tilt.js"></script>
+  <script>
+    VanillaTilt.init(document.querySelector(".wrapper"), {
+      max: 25,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.25,
+      gyroscopeMinAngleX: -45,
+    });
+    var btn = document.querySelector("button");
+    var closeBtn = document.querySelector(".fa-xmark");
+    btn.addEventListener("click", () => {
+      document.querySelector(".wrapper").classList.add("active");
+      btn.style.display = "none";
+    });
+    closeBtn.addEventListener("click", () => {
+      document.querySelector(".wrapper").classList.remove("active");
+      btn.style.display = "block";
+    });
+  </script>
+  <script>
+    // JavaScript phát nhạc khi nhấn nút
+    const audio = document.getElementById("background-audio");
+    const playButton = document.getElementById("play-button");
+
+    playButton.addEventListener("click", () => {
+      const playPromise = audio.play();
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log("Nhạc đã bắt đầu phát!");
+          })
+          .catch((error) => {
+            console.error("Không thể phát nhạc:", error);
+          });
+      }
+
+      // Hiển thị nội dung sau khi nhấn nút
+      document.querySelector(".wrapper").classList.add("active");
+      playButton.style.display = "none";
+    });
+  </script>
+</html>
